@@ -13,24 +13,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Scope (value = "session")
-@Component (value = "productList")
+@Scope(value = "session")
+@Component(value = "productList")
 @ELBeanName(value = "productList")
 @Join(path = "/", to = "/views/product-list.jsf")
 public class ProductListController {
-    @Autowired
-    private ProductRepository productRepository;
+	@Autowired
+	private ProductRepository productRepository;
 
-    private List<Product> products;
-
-    @Deferred
-    @RequestAction
-    @IgnorePostback
-    public void loadData() {
-        products = productRepository.findAll();
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
+	public List<Product> getProducts() {
+		return productRepository.findAll();
+	}
 }
