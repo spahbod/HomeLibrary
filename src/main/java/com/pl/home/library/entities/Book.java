@@ -1,33 +1,31 @@
 package com.pl.home.library.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Entity
-public class Product {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Book {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
     @Column
-    private String name;
+    private String title;
 
     @Column
-    private BigDecimal price;
+    private String author;
 
-    public Product() {
-    	
-    }
-
-    public Product(String name, BigDecimal price) {
-        this.name = name;
-        this.price = price;
-    }
+	@Column
+	private Date edition;
 }

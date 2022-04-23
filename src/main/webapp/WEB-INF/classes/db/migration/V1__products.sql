@@ -1,5 +1,6 @@
-create table product (
+create table book (
   id identity not null,
-  name varchar (255) not null,
-  price double not null
+  title varchar(255) not null,
+  author varchar(255) not null,
+  edition date not null
 );

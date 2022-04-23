@@ -9,24 +9,29 @@
 <ui:composition template="/templates/template.xhtml">
     <ui:define name="content">
         <h:form id="form">
-            <p:panel header="Products List">
-                <p:dataTable id="table" var="product" value="#{productList.products}">
+            <p:panel header="Books">
+                <p:dataTable id="table" var="book" value="#{bookList.books}">
                     <p:column>
                         <f:facet name="header"># Id</f:facet>
-                        <h:outputText value="#{product.id}" />
+                        <h:outputText value="#{book.id}" />
                     </p:column>
 
                     <p:column>
-                        <f:facet name="header">Name</f:facet>
-                        <h:outputText value="#{product.name}" />
+                        <f:facet name="header">title</f:facet>
+                        <h:outputText value="#{book.title}" />
                     </p:column>
 
                     <p:column>
-                        <f:facet name="header">Price</f:facet>
-                        <h:outputText value="#{product.price}">
-                            <f:convertNumber type="currency" currencySymbol="$ " />
-                        </h:outputText>
+                        <f:facet name="header">Author</f:facet>
+                        <h:outputText value="#{book.author}" />
                     </p:column>
+
+					<p:column>
+						<f:facet name="header">Edition</f:facet>
+						<h:outputText value="#{book.edition}" >
+							<f:convertDateTime pattern = "yyyy" />
+						</h:outputText>
+					</p:column>
                 </p:dataTable>
             </p:panel>
         </h:form>
