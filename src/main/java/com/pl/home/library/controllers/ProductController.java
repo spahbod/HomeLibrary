@@ -1,18 +1,17 @@
 package com.pl.home.library.controllers;
 
+
 import org.ocpsoft.rewrite.annotation.Join;
-import org.ocpsoft.rewrite.el.ELBeanName;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.pl.home.library.entities.Product;
 import com.pl.home.library.repositories.ProductRepository;
 
-@Scope(value = "session")
+import javax.faces.bean.SessionScoped;
+
+@SessionScoped
 @Component(value = "productController")
-@ELBeanName(value = "productController")
 @Join(path = "/product", to = "/views/product-form.jsf")
 public class ProductController {
     @Autowired
